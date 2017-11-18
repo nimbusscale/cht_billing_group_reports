@@ -1,6 +1,7 @@
 import logging
 
-from cloudhealth.customers import Customers
+from cloudhealth.customer import Customers
+from cloudhealth.perspective import Perspectives, Perspective
 
 import requests
 
@@ -27,6 +28,19 @@ class HTTPClient:
                     url, response.status_code))
         return response.json()
 
+    @property
+    def params(self):
+        return self._params
+
+    @params.setter
+    def params(self, param_dict):
+        self._params = param_dict
+
+    def add_param(self, param):
+        params = self.params
+        params.update(param)
+        self.params = params
+
 
 class CloudHealth:
 
@@ -34,9 +48,15 @@ class CloudHealth:
         self._client = HTTPClient(DEFAULT_CLOUDHEALTH_API_URL,
                                   api_key=api_key,
                                   client_api_id=client_api_id)
-        self._customers = Customers(self._client)
 
     @property
     def customers(self):
-        return self._customers
+        return Customers(self._client)
+
+    @property
+    def perspectives(self):
+        return Perspectives(self._client)
+
+    def get_perspective(self, perspective_id):
+        return Perspective(self._client, perspective_id)
 

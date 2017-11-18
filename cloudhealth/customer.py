@@ -15,3 +15,11 @@ class Customers:
         return {customer['name']: customer['id'] for customer in customer_list}
 
 
+class Customer:
+
+    def __init__(self, customer_client):
+        self._client = customer_client
+        self._uri = 'v1/customers/'
+
+
+
