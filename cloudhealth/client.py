@@ -1,5 +1,7 @@
 import logging
 
+from cloudhealth.customers import Customers
+
 import requests
 
 logger = logging.getLogger()
@@ -32,5 +34,9 @@ class CloudHealth:
         self._client = HTTPClient(DEFAULT_CLOUDHEALTH_API_URL,
                                   api_key=api_key,
                                   client_api_id=client_api_id)
+        self._customers = Customers(self._client)
 
+    @property
+    def customers(self):
+        return self._customers
 
