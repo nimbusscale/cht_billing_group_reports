@@ -2,6 +2,7 @@ import logging
 
 from cloudhealth.customer import Customers
 from cloudhealth.perspective import Perspectives, Perspective
+from cloudhealth.report import CostHistory
 
 import requests
 
@@ -59,4 +60,10 @@ class CloudHealth:
 
     def get_perspective(self, perspective_id):
         return Perspective(self._client, perspective_id)
+
+    @property
+    def cost_history(self):
+        return CostHistory(self._client,
+                           '2954937501729',
+                           '2954937520673')
 
