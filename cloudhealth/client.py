@@ -64,6 +64,8 @@ class CloudHealth:
     @property
     def cost_history(self):
         return CostHistory(self._client,
-                           '2954937501729',
-                           '2954937520673')
+                           '1099512085253',
+                           '1099529371721')
+
+
 
