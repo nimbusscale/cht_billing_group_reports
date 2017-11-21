@@ -32,7 +32,7 @@ class CostHistory:
         # (i.e. column in cost_lists). This line initalizes the list at 0 for
         # each account
         calculated_totals = [0 for _ in cost_lists[0]]
-        for cost_item in cost_lists[1:-1]:
+        for cost_item in cost_lists[1:]:
             for column, cost in enumerate(cost_item):
                 calculated_totals[column] = calculated_totals[column] + cost
         for column, calculated_total in enumerate(calculated_totals):
@@ -123,7 +123,6 @@ class CostHistory:
                     cost_csv = ",".join(map(str,service_cost_list))
                     report_csv = report_csv + "{}, {}\n".format(service,
                                                                 cost_csv)
-        print(service_cost_lists[-1])
         if not self._validate_total(service_cost_lists):
             report_csv = (
                 "TOTALS DESCREPENCY DETECTED - "
