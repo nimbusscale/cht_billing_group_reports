@@ -87,12 +87,12 @@ class CostHistory:
         # charge via the API and these items can be confusing on a report if
         # they are included.
         subtotal_items = [
-                          "Amazon DynamoDB",
-                          "Amazon DynamoDB - Direct",
-                          "Amazon Elastic Compute Cloud",
-                          "Amazon Elastic Compute Cloud - Direct",
-                          "Amazon RDS Service - Direct",
-                          "Amazon S3 - Direct"
+                          # "Amazon DynamoDB",
+                          # "Amazon DynamoDB - Direct",
+                          # "Amazon Elastic Compute Cloud",
+                          # "Amazon Elastic Compute Cloud - Direct",
+                          # "Amazon RDS Service - Direct",
+                          # "Amazon S3 - Direct"
                           ]
         accounts_csv = "Headers," + ",".join(map(str, accounts))
         report_csv = accounts_csv + "\n"

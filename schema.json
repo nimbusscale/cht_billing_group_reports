@@ -1,0 +1,41 @@
+{
+	"schema": {
+		"name": "Project-test",
+		"include_in_reports": "true",
+		"rules": [{
+			"type": "filter",
+			"asset": "AwsAsset",
+			"to": "Admin",
+			"condition": {
+				"clauses": [{
+					"tag_field": ["project"],
+					"op": "=",
+					"val": "Admin"
+				}]
+			}
+		}, {
+			"type": "filter",
+			"asset": "AwsAsset",
+			"to": "Algorithms",
+			"condition": {
+				"clauses": [{
+					"tag_field": ["project"],
+					"op": "=",
+					"val": "Algorithms"
+				}]
+			}
+		}, {
+			"type": "filter",
+			"asset": "AwsAsset",
+			"to": "Non-Conforming",
+			"condition": {
+				"clauses": [{
+					"tag_field": ["project"],
+					"op": "Has A Value"
+				}]
+			}
+		}],
+		"merges": [],
+		"constants": []
+	}
+}

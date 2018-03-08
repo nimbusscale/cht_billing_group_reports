@@ -23,6 +23,7 @@ class HTTPClient:
         response = requests.get(url,
                                 params=self._params,
                                 headers=self._headers)
+        print(response.url)
         if response.status_code != 200:
             raise RuntimeError(
                 'Request to {} failed! (HTTP Error Code: {})'.format(
@@ -64,8 +65,8 @@ class CloudHealth:
     @property
     def cost_history(self):
         return CostHistory(self._client,
-                           '1099512085253',
-                           '1099529371721')
+                           '2954937501729',
+                           '2954937520673')
 
 
 
